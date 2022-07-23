@@ -17,7 +17,6 @@
 
 .body-wrapper {
     background-image: linear-gradient(to bottom, #F8387B, #E1105C);
-    height: 100vh;
 }
 
 .balance-block {
@@ -35,6 +34,10 @@
     border-radius: 20px;
     background-image: linear-gradient(to bottom, #F8387B, #E1105C);
     color: #fff;
+}
+
+.user-invite-code {
+    color: #444;
 }
 
 .menu-block {
@@ -62,6 +65,11 @@
 
 .image-block img {
     border-radius: 20px;
+}
+
+.footerlog {
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 @media screen and (max-width: 992px) {

@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\UserController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [PageController::class, 'homepage'])->name('homepage');
+    Route::get('/logout', [AuthenticationController::class, 'logout']);
 });
 
 
@@ -29,6 +30,9 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+    Route::get('/', function () {
+        return redirect('/admin/users');
+    });
     Route::get('/users', [UserController::class, 'list']);
 });
 

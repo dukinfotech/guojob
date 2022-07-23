@@ -2,11 +2,16 @@
 
 @section('content')
     <div class="balance-block">
-        <div class="user-name mb-3">
+        <div class="user-name">
             {{ auth()->user()->name }}
         </div>
+        @if (auth()->user()->role === 'admin')
+        <div class="user-invite-code mb-3">
+            {{ auth()->user()->invite_code }}
+        </div>
+        @endif
         <div class="user-balance">
-            {{ auth()->user()->balance }} VND
+            @money(auth()->user()->balance)
         </div>
     </div>
     <div class="row g-2 menu-block">
@@ -39,5 +44,8 @@
         <a href="https://www.samsung.com/vn/smartphones/" target="_blank">
             <img class="img-fluid" src="/images/image.jpg" alt="image">
         </a>
+    </div>
+    <div class="footerlog text-center">
+        <img class="img-fluid" src="/images/footerlog.png" alt="footerlog">
     </div>
 @endsection

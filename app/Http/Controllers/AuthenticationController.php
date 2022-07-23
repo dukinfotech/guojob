@@ -67,4 +67,14 @@ class AuthenticationController extends Controller
 
         return back()->withInput()->with('notFoundError', 'Sai tên tài khoản hoặc mật khẩu');
     }
+
+    public function logout() {
+        Auth::logout();
+
+        request()->session()->invalidate();
+
+        request()->session()->regenerateToken();
+
+        return redirect('/login');
+    }
 }
