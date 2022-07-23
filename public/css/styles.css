@@ -1,0 +1,16 @@
+#registerForm, #loginForm {
+    border-radius: 8px;
+    padding: 50px;
+    margin: 0% auto;
+    max-width: 500px;
+    transform: translateY(30%);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#loginForm {
+    transform: translateY(50%);
+}
+
+.required, .error, .error li {
+    color: red;
+}
