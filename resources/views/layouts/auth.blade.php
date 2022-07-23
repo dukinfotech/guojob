@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./lib/bootstrap-5.2.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
-<body class="body-wrapper">
+<body>
     <div class="container">
         @yield('content')
     </div>

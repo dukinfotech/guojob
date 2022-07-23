@@ -14,3 +14,65 @@
 .required, .error, .error li {
     color: red;
 }
+
+.body-wrapper {
+    background-image: linear-gradient(to bottom, #F8387B, #E1105C);
+    height: 100vh;
+}
+
+.balance-block {
+    color: #E1105C;
+    font-weight: bold;
+    padding: 50px;
+    border-radius: 20px;
+    margin-top: 50px;
+    background-color: #fff;
+}
+
+.user-balance {
+    display: inline;
+    padding: 10px;
+    border-radius: 20px;
+    background-image: linear-gradient(to bottom, #F8387B, #E1105C);
+    color: #fff;
+}
+
+.menu-block {
+    margin-top: 20px;
+}
+
+.menu {
+    text-align: center;
+    border-radius: 10px;
+    height: 180px;
+}
+
+.menu img {
+    margin-top: 5px;
+    max-width: 50%;
+}
+
+.menu-text {
+    font-weight: bold;
+}
+
+.image-block {
+    margin-top: 20px;
+}
+
+.image-block img {
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 992px) {
+    .balance-block {
+        padding: 30px;
+    }
+    .menu {
+        height: 100px;
+    }
+    .menu img {
+        margin-top: 5px;
+        max-height: 50%;
+    }
+}

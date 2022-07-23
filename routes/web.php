@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,15 +16,19 @@ use App\Http\Controllers\AuthenticationController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('homepage');
+Route::middleware('auth')->group(function () {
+    Route::get('/', [PageController::class, 'homepage'])->name('homepage');
+});
 
 
 Route::middleware('guest')->group(function () {
     Route::get('/register', [AuthenticationController::class, 'showRegisterForm']);
     Route::put('/register', [AuthenticationController::class, 'register']);
-    Route::get('/login', [AuthenticationController::class, 'showLoginForm']);
+    Route::get('/login', [AuthenticationController::class, 'showLoginForm'])->name('login');
     Route::put('/login', [AuthenticationController::class, 'login']);
+});
+
+Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+    Route::get('/users', [UserController::class, 'list']);
 });
 
