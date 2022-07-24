@@ -32,3 +32,9 @@ $('#btnSave1').click(function () {
 function removeSortItem(index) {
     $(`#sortItem${index}`).remove();
 }
+
+function deleteUser(userId) {
+    if (confirm("Xóa?") == true) {
+        $('#deleteUserForm' + userId).submit();
+    }
+}

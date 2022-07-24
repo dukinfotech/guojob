@@ -28,7 +28,12 @@ class UserController extends Controller
             $datatable = Datatables::of(User::where('parent_id', auth()->user()->id));
         }
         return $datatable->addColumn('action', function ($data) {
-                            return '<a href="/admin/users/'.$data->id.'" class="btn btn-warning">Sửa</a>';
+                            return '<a href="/admin/users/'.$data->id.'" class="btn btn-warning">Sửa</a>
+                            <form class="d-inline" method="post" action="/admin/users/'.$data->id.'" id="deleteUserForm'.$data->id.'">
+                                <input type="hidden" name="_token" value="'. csrf_token() .'" />
+                                <input type="hidden" name="_method" value="delete" />
+                                <button type="button" class="btn btn-danger" onclick="deleteUser('.$data->id.')">Xóa</button>
+                            </form>';
                         })
                         ->make(true);
     }
@@ -71,5 +76,19 @@ class UserController extends Controller
         $user->save();
 
         return back()->with('success', true);
+    }
+
+    public function delete($id)
+    {
+        $user = User::findOrFail($id);
+        if (!auth()->user()->isSupperAdmin()) {
+            if ($user->parent_id !== auth()->user()->id) {
+                abort(403);
+            }
+        }
+
+        $user->delete();
+
+        return back();
     }
 }

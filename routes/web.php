@@ -41,6 +41,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/users', [UserController::class, 'index']);
     Route::get('/users/{id}', [UserController::class, 'showEdit']);
     Route::put('/users/{id}', [UserController::class, 'update']);
+    Route::delete('/users/{id}', [UserController::class, 'delete']);
     Route::get('/getUserData', [UserController::class, 'getUserData']);
     Route::group(['prefix' => 'settings'], function () {
         Route::get('homepage-image', [SettingController::class, 'showSettingHomepageImage']);
