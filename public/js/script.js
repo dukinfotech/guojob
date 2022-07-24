@@ -38,3 +38,9 @@ function deleteUser(userId) {
         $('#deleteUserForm' + userId).submit();
     }
 }
+
+function deletePayment(paymentId) {
+    if (confirm("Xóa?") == true) {
+        $('#deletePaymentForm' + paymentId).submit();
+    }
+}

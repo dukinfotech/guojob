@@ -41,7 +41,18 @@
                     <i class="fas fa-fw fa-user-alt"></i>
                     <span>Người dùng</span></a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/charge-requests">
+                    <i class="fas fa-fw fa-cash-register"></i>
+                    <span>Yêu cầu nạp tiền</span></a>
+            </li>
+            @if (auth()->user()->isSupperAdmin())
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/payments">
+                    <i class="fas fa-fw fa-credit-card"></i>
+                    <span>Thanh toán</span></a>
+            </li>
+            @endif
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"

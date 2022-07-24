@@ -5,6 +5,8 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\ChargeRequestController;
+use App\Http\Controllers\Admin\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,15 +41,26 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         return redirect('/admin/users');
     });
     Route::get('/users', [UserController::class, 'index']);
+    Route::get('/getUserData', [UserController::class, 'getUserData']);
     Route::get('/users/{id}', [UserController::class, 'showEdit']);
     Route::put('/users/{id}', [UserController::class, 'update']);
     Route::delete('/users/{id}', [UserController::class, 'delete']);
-    Route::get('/getUserData', [UserController::class, 'getUserData']);
     Route::group(['prefix' => 'settings'], function () {
         Route::get('homepage-image', [SettingController::class, 'showSettingHomepageImage']);
         Route::put('homepage-image', [SettingController::class, 'saveSettingHomepageImage']);
         Route::get('CSKH', [SettingController::class, 'showCSKH']);
         Route::put('CSKH', [SettingController::class, 'saveCSKH']);
     });
+
+    Route::get('/charge-requests', [ChargeRequestController::class, 'index']);
+    Route::get('/getChargeRequestData', [ChargeRequestController::class, 'getChargeRequestData']);
+
+    Route::get('/payments', [PaymentController::class, 'index']);
+    Route::get('/payments/create', [PaymentController::class, 'create']);
+    Route::post('/payments', [PaymentController::class, 'save']);
+    Route::get('/getPaymentData', [PaymentController::class, 'getPaymentData']);
+    Route::delete('/payments/{id}', [PaymentController::class, 'delete']);
+    Route::get('/payments/{id}', [PaymentController::class, 'showEdit']);
+    Route::put('/payments/{id}', [PaymentController::class, 'update']);
 });
 
