@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 
-class UserRegisterRequest extends FormRequest
+class UserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,14 +25,27 @@ class UserRegisterRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'required|max:25',
-            'username' => 'required|unique:users|min:5|max:16',
-            'phone' => 'required|numeric|unique:users|min:100000000|max:999999999999',
-            'password' => 'required|min:8|max:16',
-            'passcode' => 'required|min:3|max:8',
-            'invite_code' => 'required'
-        ];
+        $userId = $this->route()->parameter('id');
+        if ($userId) {
+            return [
+                'name' => 'required|max:25',
+                'username' => 'required|min:5|max:16|unique:users,username,' . $userId,
+                'phone' => 'required|numeric|min:100000000|max:999999999999|unique:users,phone,' . $userId,
+                'password' => 'nullable|min:8|max:16',
+                'passcode' => 'nullable|min:3|max:8',
+                'balance' => 'numeric|min:0',
+                'role' => 'required'
+            ];
+        } else {
+            return [
+                'name' => 'required|max:25',
+                'username' => 'required|unique:users|min:5|max:16',
+                'phone' => 'required|numeric|unique:users|min:100000000|max:999999999999',
+                'password' => 'required|min:8|max:16',
+                'passcode' => 'required|min:3|max:8',
+                'invite_code' => 'required'
+            ];
+        }
     }
 
     public function messages()
@@ -56,6 +69,7 @@ class UserRegisterRequest extends FormRequest
             'passcode.min' => 'Vui lòng nhập tối thiểu :min ký tự',
             'passcode.max' => 'Vui lòng nhập tối đa :max ký tự',
             'invite_code.required' => 'Vui lòng nhập mã thư mời',
+            'balance.min' => 'Số dư phải lớn hơn hoặc bằng 0'
         ];
     }
 

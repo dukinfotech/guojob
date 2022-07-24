@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\UserRegisterRequest;
+use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserLoginRequest;
 use Illuminate\Support\Str;
 use App\Models\User;
@@ -16,9 +16,9 @@ class AuthenticationController extends Controller
         return view('auth.register');
     }
 
-    public function register(UserRegisterRequest $userRegisterReq) {
+    public function register(UserRequest $userReq) {
         try {
-            $validatedData = $userRegisterReq->validated();
+            $validatedData = $userReq->validated();
 
             $parent = User::where([
                 'invite_code' => $validatedData['invite_code'],

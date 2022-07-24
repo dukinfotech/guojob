@@ -38,7 +38,10 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', function () {
         return redirect('/admin/users');
     });
-    Route::get('/users', [UserController::class, 'list']);
+    Route::get('/users', [UserController::class, 'index']);
+    Route::get('/users/{id}', [UserController::class, 'showEdit']);
+    Route::put('/users/{id}', [UserController::class, 'update']);
+    Route::get('/getUserData', [UserController::class, 'getUserData']);
     Route::group(['prefix' => 'settings'], function () {
         Route::get('homepage-image', [SettingController::class, 'showSettingHomepageImage']);
         Route::put('homepage-image', [SettingController::class, 'saveSettingHomepageImage']);

@@ -12,7 +12,7 @@ class PageController extends Controller
         $homepage_images = json_decode($setting->homepage_images);
         $cskh_url = null;
         if (auth()->user()->parent) {
-            $cskh_url = auth()->user()->parent()->cskh_url;
+            $cskh_url = auth()->user()->parent->cskh_url;
         } else {
             $cskh_url = auth()->user()->cskh_url;
         }

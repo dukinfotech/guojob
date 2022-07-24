@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
             'phone' => '0123456789',
             'password' => password_hash('12345678', PASSWORD_DEFAULT),
-            'passcode' => '12345678',
+            'passcode' => password_hash('12345678', PASSWORD_DEFAULT),
             'invite_code' => 'ABCD1234'
         ]);
 

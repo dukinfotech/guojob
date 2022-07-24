@@ -13,6 +13,7 @@
         rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="/lib/jquery-ui-1.13.2.custom/jquery-ui.min.css">
 </head>
 
@@ -160,6 +161,7 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
