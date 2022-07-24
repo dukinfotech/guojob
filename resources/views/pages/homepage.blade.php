@@ -11,7 +11,7 @@
         </div>
         @endif
         <div class="user-balance">
-            @money(auth()->user()->balance)
+            @money2(auth()->user()->balance)
         </div>
     </div>
     <div class="row g-2 menu-block">
@@ -40,11 +40,21 @@
           </div>
         </div>
     </div>
+    @if(count($homepage_images) == 0)
     <div class="image-block">
         <a href="https://www.samsung.com/vn/smartphones/" target="_blank">
             <img class="img-fluid" src="/images/image.jpg" alt="image">
         </a>
     </div>
+    @else
+        @foreach ($homepage_images as $homepage_image)
+        <div class="image-block">
+            <a href="{{ $homepage_image->url }}" target="_blank">
+                <img class="img-fluid" src="{{ $homepage_image->img }}" alt="image">
+            </a>
+        </div>
+        @endforeach
+    @endif
     <div class="footerlog text-center">
         <img class="img-fluid" src="/images/footerlog.png" alt="footerlog">
     </div>

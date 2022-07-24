@@ -7,12 +7,13 @@
     <title>Admin Dashboard</title>
     <!-- Custom fonts for this template-->
     <link href="/lib/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="/css/sb-admin-2.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="/lib/jquery-ui-1.13.2.custom/jquery-ui.min.css">
 </head>
 
 <body id="page-top">
@@ -40,29 +41,22 @@
                     <span>Người dùng</span></a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
-
             <!-- Nav Item - Pages Collapse Menu -->
+            @if (auth()->user()->isSupperAdmin())
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <span>Cài đặt</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="/admin/settings/homepage-image">Ảnh trang chủ</a>
+                        <a class="collapse-item filemanager" href="#">Quản lý file</a>
                     </div>
                 </div>
             </li>
+            @endif
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -172,7 +166,11 @@
 
     <!-- Custom scripts for all pages-->
     <script src="/js/sb-admin-2.min.js"></script>
-
+    <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+    <script src="/lib/jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
+    <script src="/lib/notify.min.js"></script>
+    <script src="/js/script.js"></script>
+    @stack('scripts')
 </body>
 
 </html>
