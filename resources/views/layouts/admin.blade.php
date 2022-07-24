@@ -42,7 +42,6 @@
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            @if (auth()->user()->isSupperAdmin())
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -51,12 +50,14 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="/admin/settings/CSKH">CSKH</a>
+                        @if (auth()->user()->isSupperAdmin())
                         <a class="collapse-item" href="/admin/settings/homepage-image">Ảnh trang chủ</a>
                         <a class="collapse-item filemanager" href="#">Quản lý file</a>
+                        @endif
                     </div>
                 </div>
             </li>
-            @endif
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

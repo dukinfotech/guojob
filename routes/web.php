@@ -42,6 +42,8 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::group(['prefix' => 'settings'], function () {
         Route::get('homepage-image', [SettingController::class, 'showSettingHomepageImage']);
         Route::put('homepage-image', [SettingController::class, 'saveSettingHomepageImage']);
+        Route::get('CSKH', [SettingController::class, 'showCSKH']);
+        Route::put('CSKH', [SettingController::class, 'saveCSKH']);
     });
 });
 

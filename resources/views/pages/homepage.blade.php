@@ -28,10 +28,12 @@
           </div>
         </div>
         <div class="col-lg-3 col-6">
-          <div class="menu bg-light">
-            <img class="img-fluid" src="/images/phone1.png" alt="phone">
-            <p class="menu-text">Trung tâm CSKH</p>
-          </div>
+            <a href="{{ $cskh_url }}" target="_blank">
+                <div class="menu bg-light">
+                    <img class="img-fluid" src="/images/phone1.png" alt="phone">
+                    <p class="menu-text">Trung tâm CSKH</p>
+                </div>
+            </a>
         </div>
         <div class="col-lg-3 col-6">
           <div class="menu bg-light">

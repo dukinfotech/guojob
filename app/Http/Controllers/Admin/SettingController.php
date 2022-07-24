@@ -20,4 +20,14 @@ class SettingController extends Controller
         ]);
         return;
     }
+
+    public function showCSKH() {
+        return view('settings.cskh');
+    }
+
+    public function saveCSKH(Request $req) {
+        auth()->user()->cskh_url = $req->cskh_url;
+        auth()->user()->save();
+        return back();
+    }
 }

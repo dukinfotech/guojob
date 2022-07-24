@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->unsignedBigInteger('balance')->default(0);
             $table->string('role')->default('user');
+            $table->string('cskh_url')->default('');
             $table->string('username')->unique();
             $table->string('phone')->unique();
             $table->string('password');
