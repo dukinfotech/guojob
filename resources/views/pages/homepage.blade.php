@@ -16,10 +16,12 @@
     </div>
     <div class="row g-2 menu-block">
         <div class="col-lg-3 col-6">
-          <div class="menu bg-light">
-            <img class="img-fluid" src="/images/recharge1.png" alt="recharge">
-            <p class="menu-text">Nạp</p>
-          </div>
+            <a href="/recharge">
+                <div class="menu bg-light">
+                    <img class="img-fluid" src="/images/recharge1.png" alt="recharge">
+                    <p class="menu-text">Nạp</p>
+                </div>
+            </a>
         </div>
         <div class="col-lg-3 col-6">
           <div class="menu bg-light">

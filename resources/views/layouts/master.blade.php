@@ -9,9 +9,12 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body class="body-wrapper">
+    @yield('navbar')
     <div class="container">
         @yield('content')
     </div>
     <script src="./lib/bootstrap-5.2.0-dist/js/bootstrap.min.js"></script>
+    <script src="./lib/jquery/jquery.min.js"></script>
+    @stack('scripts')
 </body>
 </html>

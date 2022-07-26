@@ -44,3 +44,4 @@ function deletePayment(paymentId) {
         $('#deletePaymentForm' + paymentId).submit();
     }
 }
+

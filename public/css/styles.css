@@ -16,6 +16,7 @@
 }
 
 .body-wrapper {
+    min-height: 100vh;
     background-image: linear-gradient(to bottom, #F8387B, #E1105C);
 }
 
@@ -76,6 +77,113 @@ a {
     margin-top: 50px;
     margin-bottom: 20px;
 }
+.recharge-title {
+    height: 80px;
+    background-color: #fff;
+}
+
+.history-link {
+    color: #E1105C;
+    text-decoration: underline;
+}
+
+.history-link:hover {
+    color: #E1105C;
+    text-decoration: underline;
+}
+
+.link-white {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.link-white:hover {
+    color: #fff;
+}
+
+.recharge-balance {
+    height: 80px;
+    color: #fff;
+    text-align: center;
+    background-color: rgba(255, 255, 255, .5);
+}
+
+.recharge-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#recharge_label {
+    background: #fff !important;
+    color: #E1105C;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+    border: 3px solid #E1105C;
+    border-right: none;
+}
+
+#recharge_money {
+    border-left: none;
+    border: 3px solid #E1105C;
+    text-align: right;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.recharge_note1 {
+    color: #888;
+}
+
+.recharge_note2 {
+    font-weight: bold;
+}
+
+#recharge_money:focus {
+    box-shadow: none;
+}
+
+.money_ex {
+    color: #E1105C;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #fff;
+    border: 2px solid #E1105C;
+    border-radius: 40px;
+    padding: 20px 50px;
+    width: 100%;
+}
+
+.btnRecharge {
+    color: #fff;
+    background-color: #E1105C;
+    width: 80%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.payment-block {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.btnPayment {
+    color: #fff;
+    background-color: transparent;
+    border: none;
+}
+
+.confirm_recharge_block {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
 
 @media screen and (max-width: 992px) {
     .balance-block {
@@ -87,5 +195,9 @@ a {
     .menu img {
         margin-top: 5px;
         max-height: 50%;
+    }
+    .money_ex {
+        padding: 10px 20px;
+        font-size: 100%;
     }
 }

@@ -41,4 +41,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(User::class, 'parent_id');
     }
+
+    public function requestRecharges() {
+        return $this->hasMany(RequestRecharge::class);
+    }
 }

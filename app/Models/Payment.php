@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\RequestRecharge;
 
 class Payment extends Model
 {
@@ -16,4 +17,8 @@ class Payment extends Model
         'bank',
         'bank_logo',
     ];
+
+    public function requestRecharges() {
+        return $this->hasMany(RequestRecharge::class);
+    }
 }
