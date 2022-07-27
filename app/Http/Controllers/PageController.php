@@ -45,4 +45,9 @@ class PageController extends Controller
         $payment = Payment::findOrFail($req->payment);
         return view('pages.confirm_recharge')->with('payment', $payment);
     }
+
+    public function deposit() {
+        $payments = Payment::all();
+        return view('pages.deposit')->with('payments', $payments);
+    }
 }

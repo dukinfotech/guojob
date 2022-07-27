@@ -24,10 +24,12 @@
             </a>
         </div>
         <div class="col-lg-3 col-6">
-          <div class="menu bg-light">
-            <img class="img-fluid" src="/images/now1.png" alt="now">
-            <p class="menu-text">Rút</p>
-          </div>
+            <a href="/deposit">
+                <div class="menu bg-light">
+                    <img class="img-fluid" src="/images/now1.png" alt="now">
+                    <p class="menu-text">Rút</p>
+                </div>
+            </a>
         </div>
         <div class="col-lg-3 col-6">
             <a href="{{ $cskh_url }}" target="_blank">

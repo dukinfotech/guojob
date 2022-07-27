@@ -21,4 +21,8 @@ class Payment extends Model
     public function requestRecharges() {
         return $this->hasMany(RequestRecharge::class);
     }
+
+    public function requestDeposits() {
+        return $this->hasMany(RequestDeposit::class);
+    }
 }

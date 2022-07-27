@@ -45,4 +45,8 @@ class User extends Authenticatable
     public function requestRecharges() {
         return $this->hasMany(RequestRecharge::class);
     }
+
+    public function requestDeposits() {
+        return $this->hasMany(RequestDeposit::class);
+    }
 }

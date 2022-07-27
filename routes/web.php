@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\ChargeRequestController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\RequestRechargeController;
+use App\Http\Controllers\RequestDepositController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/payment', [PageController::class, 'payment']);
     Route::post('/payment', [RequestRechargeController::class, 'send']);
     Route::get('/confirm-recharge', [PageController::class, 'confirmRecharge']);
-
+    Route::get('/deposit', [PageController::class, 'deposit']);
+    Route::post('/deposit', [RequestDepositController::class, 'send']);
 });
 
 
