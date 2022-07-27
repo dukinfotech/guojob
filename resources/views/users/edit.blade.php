@@ -15,10 +15,6 @@
             @endforeach
             </ul>
         @endif
-        <div class="mb-3">
-            <label for="username" class="form-label">Tên tài khoản <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" name="username" id="username" placeholder="Nhập tên tài khoản" required value="{{ old('username') ? old('username') : $user->username }}">
-        </div>
         @if(count($errors) && $errors->get('username'))
             <ul class="text-danger">
             @foreach ($errors->get('username') as $error)
@@ -30,6 +26,35 @@
             <label for="phone" class="form-label">Số điện thoại <span class="text-danger">*</span></label>
             <input type="number" class="form-control" name="phone" id="phone" placeholder="Nhập số điện thoại" required value="{{ old('phone') ? old('phone') : $user->phone }}">
         </div>
+        @if(count($errors) && $errors->get('phone'))
+            <ul class="text-danger">
+            @foreach ($errors->get('phone') as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+            </ul>
+        @endif
+        <div class="mb-3">
+            <label for="level" class="form-label">Level <span class="text-danger">*</span></label>
+            <select name="level" id="level" class="form-control">
+                @foreach (['v1', 'v2', 'v3', 'v4', 'v5', 'v6', 'v7', 'v8', 'v9', 'v10'] as $v)
+                    <option value="{{ $v }}" {{ $user->level === $v ? 'selected' : '' }}>{{ $v }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="commission" class="form-label">Hoa hồng <span class="text-danger">*</span></label>
+            <input type="number" class="form-control" name="commission" id="commission" placeholder="Nhập hoa hồng" required value="{{ old('commission') ? old('commission') : $user->commission }}">
+        </div>
+        @if($user->username !== 'admin')
+        <div class="mb-3">
+            <label for="active" class="form-label">Trạng thái <span class="text-danger">*</span></label>
+            <select name="active" id="active" class="form-control">
+                @foreach ([-1, 0, 1] as $active)
+                    <option value="{{ $active }}" {{ $user->active === $active ? 'selected' : '' }}>{{ $active === -1 ? 'Khóa vĩnh viễn' : ($active === 0 ? 'Khóa tạm thời' : 'Kích hoạt') }}</option>
+                @endforeach
+            </select>
+        </div>
+        @endif
         @if(count($errors) && $errors->get('phone'))
             <ul class="text-danger">
             @foreach ($errors->get('phone') as $error)
@@ -59,6 +84,7 @@
             @endforeach
             </ul>
         @endif
+        @if($user->username !== 'admin')
         <div class="mb-3">
             <label for="role" class="form-label">Quyền <span class="text-danger">*</span></label>
             <select name="role" id="role" class="form-control">
@@ -66,6 +92,7 @@
                 <option value="user" {{ $user->role === 'user' ? 'selected' : '' }}>User</option>
             </select>
         </div>
+        @endif
         <div class="mb-3">
             <label for="ba" class="form-label">Số dư <span class="text-danger">*</span></label>
             <input type="number" class="form-control" name="balance" id="balance" placeholder="Nhập số dư" required value="{{ old('balance') ? old('balance') : $user->balance }}">

@@ -70,7 +70,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::delete('/deposit-requests/{id}', [DepositRequestController::class, 'delete']);
     Route::put('/deposit-requests/{id}', [DepositRequestController::class, 'depositProccess']);
 
-    Route::get('/payments', [PaymentController::class, 'index']);
+    Route::get('/payments', [PaymentController::class, 'index'])->name('payments');
     Route::get('/payments/create', [PaymentController::class, 'create']);
     Route::post('/payments', [PaymentController::class, 'save']);
     Route::get('/getPaymentData', [PaymentController::class, 'getPaymentData']);

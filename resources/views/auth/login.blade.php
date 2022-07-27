@@ -6,7 +6,7 @@
         @method('put')
         <div class="mb-3">
             <label for="phoneOrUsername" class="form-label">Tên người dùng hoặc số điện thoại <span class="required">*</span></label>
-            <input type="text" class="form-control" name="phoneOrUsername" id="phoneOrUsername" placeholder="Nhập tên người dùng hoặc số điện thoại" required value="{{ old('phone') }}">
+            <input type="text" class="form-control" name="phoneOrUsername" id="phoneOrUsername" placeholder="Nhập tên người dùng hoặc số điện thoại" required value="{{ old('phoneOrUsername') }}">
         </div>
         @if(count($errors) && $errors->get('phone'))
             <ul class="error">
@@ -30,6 +30,12 @@
             <div class="error"></div>
             <div class="alert alert-danger" role="alert">
                 {{ session('notFoundError') }}
+            </div>
+        @endif
+        @if (session('block'))
+            <div class="error"></div>
+            <div class="alert alert-danger" role="alert">
+                {{ session('block') }}
             </div>
         @endif
         <div class="d-flex justify-content-between">

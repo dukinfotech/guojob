@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('cskh_url')->default('');
             $table->string('username')->unique();
             $table->string('phone')->unique();
+            $table->string('level')->default('v1');
+            $table->unsignedBigInteger('commission')->default(0);
+            $table->integer('active')->default(1);
             $table->string('password');
             $table->string('passcode');
             $table->string('invite_code')->unique();

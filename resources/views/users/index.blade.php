@@ -8,6 +8,9 @@
             <th>Họ và tên</th>
             <th>Tên tài khoản</th>
             <th>SĐT</th>
+            <th>Level</th>
+            <th>Hoa hồng</th>
+            <th>Trạng thái</th>
             <th>Mã mời</th>
             <th>Quyền</th>
             <th>Số dư</th>
@@ -30,6 +33,9 @@ $(function() {
             { data: 'name', name: 'name' },
             { data: 'username', name: 'username' },
             { data: 'phone', name: 'phone' },
+            { data: 'level', name: 'level' },
+            { data: 'commission', name: 'commission' },
+            { data: 'active', name: 'active' },
             { data: 'invite_code', name: 'invite_code' },
             { data: 'role', name: 'role' },
             { data: 'balance', name: 'balance' },

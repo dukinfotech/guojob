@@ -60,6 +60,16 @@ class AuthenticationController extends Controller
         ];
 
         if (Auth::attempt($validatedData) || Auth::attempt($validatedData2)) {
+            if (auth()->user()->active === 0 || auth()->user()->active == -1) {
+                $msg = auth()->user()->active === 0 ? 'Tài khoản của bạn tạm thời bị khóa' : 'Tài khoản của bạn bị khóa vĩnh viễn';
+                Auth::logout();
+
+                request()->session()->invalidate();
+
+                request()->session()->regenerateToken();
+                return back()->withInput()->with('block', $msg);
+            }
+
             request()->session()->regenerate();
 
             return redirect('/');

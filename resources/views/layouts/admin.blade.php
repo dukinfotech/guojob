@@ -53,14 +53,14 @@
 
             </li>
             @if (auth()->user()->isSupperAdmin())
-            <li class="nav-item">
+            <li class="nav-item {{ request()->route()->getName() === 'payments' ? 'active' : '' }}">
                 <a class="nav-link" href="/admin/payments">
                     <i class="fas fa-fw fa-credit-card"></i>
                     <span>Thanh toán</span></a>
             </li>
             @endif
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item {{ str_contains(request()->url(), 'settings') ? 'active' : '' }}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
