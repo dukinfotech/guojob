@@ -18,6 +18,10 @@ class RequestDepositController extends Controller
                 throw new \Exception('Mật khẩu kỹ quý không đúng');
             }
 
+            if (auth()->user()->level !== 'v1') {
+                throw new \Exception('Bạn cần hoàn thành nhiệm vụ để rút toàn bộ số tiền về. Vui lòng liên hệ chuyên viên hướng dẫn');
+            }
+
             $payment = Payment::findOrFail($req->bank);
             $reqDeposit = new RequestDeposit($req->all());
 

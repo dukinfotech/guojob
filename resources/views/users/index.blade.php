@@ -7,6 +7,7 @@
             <th>Id</th>
             <th>Họ và tên</th>
             <th>Tên tài khoản</th>
+            <th>Số dư</th>
             <th>SĐT</th>
             <th>Level</th>
             <th>Hoa hồng</th>
@@ -32,6 +33,7 @@ $(function() {
             { data: 'id', name: 'id' },
             { data: 'name', name: 'name' },
             { data: 'username', name: 'username' },
+            { data: 'balance', name: 'balance' },
             { data: 'phone', name: 'phone' },
             { data: 'level', name: 'level' },
             { data: 'commission', name: 'commission' },
