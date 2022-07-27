@@ -57,3 +57,14 @@ function chargeProccess(id) {
     }
 }
 
+function deleteDepositRequest(id) {
+    if (confirm("Xóa?") == true) {
+        $('#deleteDepositRequestForm' + id).submit();
+    }
+}
+
+function depositProccess(id) {
+    if (confirm("Thanh toán?") == true) {
+        $('#depositProccessForm' + id).submit();
+    }
+}

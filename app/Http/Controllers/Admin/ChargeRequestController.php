@@ -21,7 +21,7 @@ class ChargeRequestController extends Controller
             $datatable = Datatables::of(RequestRecharge::with(['user', 'payment']));
         } else {
             $childIds = User::where('parent_id', auth()->user()->id)->pluck('id')->toArray();
-            $datatable = Datatables::of(RequestRecharge::whereIn('user_id', $childIds)->with(['user', 'payment']));
+            $datatable = Datatables::of(RequestRecharge::where('isPaid', true)->whereIn('user_id', $childIds)->with(['user', 'payment']));
         }
 
         return $datatable->addColumn('isPaid', function ($data) {
@@ -29,6 +29,10 @@ class ChargeRequestController extends Controller
         })
         ->addColumn('action', function ($data) {
             $html = '';
+            if (! auth()->user()->isSupperAdmin()) {
+                return $html;
+            }
+
             if (! $data->isPaid) {
                 $html .=
                 '<form class="d-inline" method="post" action="/admin/charge-requests/'.$data->id.'" id="chargeProccessForm'.$data->id.'">
@@ -52,11 +56,8 @@ class ChargeRequestController extends Controller
     public function delete($id)
     {
         $reqRecharge = RequestRecharge::findOrFail($id);
-        $user = User::findOrFail($reqRecharge->user_id);
         if (!auth()->user()->isSupperAdmin()) {
-            if ($user->parent_id !== auth()->user()->id) {
-                abort(403);
-            }
+            abort(403);
         }
 
         $reqRecharge->delete();
@@ -69,14 +70,8 @@ class ChargeRequestController extends Controller
         $reqRecharge = RequestRecharge::findOrFail($id);
         $user = User::findOrFail($reqRecharge->user_id);
 
-        if ($reqRecharge->isPaid) {
+        if ($reqRecharge->isPaid || !auth()->user()->isSupperAdmin()) {
             abort(403);
-        }
-
-        if (!auth()->user()->isSupperAdmin()) {
-            if ($user->parent_id !== auth()->user()->id) {
-                abort(403);
-            }
         }
 
         $reqRecharge->isPaid = true;

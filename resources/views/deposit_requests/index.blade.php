@@ -1,12 +1,14 @@
 @extends('layouts.admin')
 
 @section('content')
-<table class="table table-bordered" id="charge-request-table">
+<table class="table table-bordered" id="deposit-request-table">
     <thead>
         <tr>
             <th>Id</th>
-            <th>Mã yêu cầu</th>
-            <th>Người dùng</th>
+            <th>Họ và tên</th>
+            <th>Chủ tài khoản</th>
+            <th>Số điện thoại</th>
+            <th>Số tài khoản</th>
             <th>Số tiền</th>
             <th>Trạng thái</th>
             <th>Ngân hàng</th>
@@ -21,14 +23,16 @@
 @push('scripts')
 <script>
 $(function() {
-    $('#charge-request-table').DataTable({
+    $('#deposit-request-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '/admin/getChargeRequestData',
+        ajax: '/admin/getDepositRequestData',
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'code', name: 'code' },
             { data: 'user.name', name: 'user' },
+            { data: 'name', name: 'name' },
+            { data: 'phone', name: 'phone' },
+            { data: 'number', name: 'number' },
             { data: 'money', name: 'money' },
             { data: 'isPaid', name: 'isPaid' },
             { data: 'payment.bank', name: 'bank' },
@@ -36,10 +40,6 @@ $(function() {
             { data: 'action', name: 'action' },
         ]
     });
-
-    @if (session('error'))
-        $.notify("{{ session('error') }}");
-    @endif
 });
 </script>
 @endpush

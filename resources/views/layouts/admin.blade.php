@@ -36,15 +36,21 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item {{ request()->route()->getName() === 'users' ? 'active' : '' }}">
                 <a class="nav-link" href="/admin/users">
                     <i class="fas fa-fw fa-user-alt"></i>
                     <span>Người dùng</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ request()->route()->getName() === 'charge-requests' ? 'active' : '' }}">
                 <a class="nav-link" href="/admin/charge-requests">
                     <i class="fas fa-fw fa-cash-register"></i>
                     <span>Yêu cầu nạp tiền</span></a>
+            </li>
+            <li class="nav-item {{ request()->route()->getName() === 'deposit-requests' ? 'active' : '' }}">
+                <a class="nav-link" href="/admin/deposit-requests">
+                    <i class="fas fa-fw fa-cash-register"></i>
+                    <span>Yêu cầu rút tiền</span></a>
+
             </li>
             @if (auth()->user()->isSupperAdmin())
             <li class="nav-item">

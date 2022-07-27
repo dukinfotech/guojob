@@ -6,6 +6,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\ChargeRequestController;
+use App\Http\Controllers\Admin\DepositRequestController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\RequestRechargeController;
 use App\Http\Controllers\RequestDepositController;
@@ -47,7 +48,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', function () {
         return redirect('/admin/users');
     });
-    Route::get('/users', [UserController::class, 'index']);
+    Route::get('/users', [UserController::class, 'index'])->name('users');
     Route::get('/getUserData', [UserController::class, 'getUserData']);
     Route::get('/users/{id}', [UserController::class, 'showEdit']);
     Route::put('/users/{id}', [UserController::class, 'update']);
@@ -59,10 +60,15 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::put('CSKH', [SettingController::class, 'saveCSKH']);
     });
 
-    Route::get('/charge-requests', [ChargeRequestController::class, 'index']);
+    Route::get('/charge-requests', [ChargeRequestController::class, 'index'])->name('charge-requests');
     Route::get('/getChargeRequestData', [ChargeRequestController::class, 'getChargeRequestData']);
     Route::delete('/charge-requests/{id}', [ChargeRequestController::class, 'delete']);
     Route::put('/charge-requests/{id}', [ChargeRequestController::class, 'chargeProccess']);
+
+    Route::get('/deposit-requests', [DepositRequestController::class, 'index'])->name('deposit-requests');
+    Route::get('/getDepositRequestData', [DepositRequestController::class, 'getDepositRequestData']);
+    Route::delete('/deposit-requests/{id}', [DepositRequestController::class, 'delete']);
+    Route::put('/deposit-requests/{id}', [DepositRequestController::class, 'depositProccess']);
 
     Route::get('/payments', [PaymentController::class, 'index']);
     Route::get('/payments/create', [PaymentController::class, 'create']);
