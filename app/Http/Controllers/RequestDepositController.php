@@ -22,6 +22,8 @@ class RequestDepositController extends Controller
             $reqDeposit = new RequestDeposit($req->all());
 
             $user = auth()->user();
+            $user->balance = $user->balance - $req->money;
+            $user->save();
             $reqDeposit->payment()->associate($payment);
             $reqDeposit->user()->associate($user);
             $reqDeposit->save();

@@ -5,11 +5,11 @@
         <div class="user-name">
             {{ auth()->user()->name }}
         </div>
-        @if (auth()->user()->role === 'admin')
         <div class="user-invite-code mb-3">
+            @if (auth()->user()->role === 'admin')
             {{ auth()->user()->invite_code }}
+            @endif
         </div>
-        @endif
         <div class="user-balance">
             @money2(auth()->user()->balance)
         </div>

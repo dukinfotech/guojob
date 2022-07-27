@@ -39,9 +39,21 @@ function deleteUser(userId) {
     }
 }
 
+function deleteChargeRequest(id) {
+    if (confirm("Xóa?") == true) {
+        $('#deleteChargeRequestForm' + id).submit();
+    }
+}
+
 function deletePayment(paymentId) {
     if (confirm("Xóa?") == true) {
         $('#deletePaymentForm' + paymentId).submit();
+    }
+}
+
+function chargeProccess(id) {
+    if (confirm("Thanh toán?") == true) {
+        $('#chargeProccessForm' + id).submit();
     }
 }
 

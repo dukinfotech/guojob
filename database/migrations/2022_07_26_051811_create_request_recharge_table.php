@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('money');
             $table->foreignId('user_id');
             $table->foreignId('payment_id');
+            $table->boolean('isPaid')->default(false);
             $table->timestamps();
         });
     }

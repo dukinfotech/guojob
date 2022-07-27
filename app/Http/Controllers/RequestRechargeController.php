@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\RequestRecharge;
 use App\Models\Payment;
+use App\Models\User;
 use Illuminate\Support\Str;
 
 class RequestRechargeController extends Controller

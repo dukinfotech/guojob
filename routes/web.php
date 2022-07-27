@@ -61,6 +61,8 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/charge-requests', [ChargeRequestController::class, 'index']);
     Route::get('/getChargeRequestData', [ChargeRequestController::class, 'getChargeRequestData']);
+    Route::delete('/charge-requests/{id}', [ChargeRequestController::class, 'delete']);
+    Route::put('/charge-requests/{id}', [ChargeRequestController::class, 'chargeProccess']);
 
     Route::get('/payments', [PaymentController::class, 'index']);
     Route::get('/payments/create', [PaymentController::class, 'create']);
