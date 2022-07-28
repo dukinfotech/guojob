@@ -25,9 +25,11 @@ class DatabaseSeeder extends Seeder
             'passcode' => password_hash('12345678', PASSWORD_DEFAULT),
             'invite_code' => 'ABCD1234'
         ]);
-
         DB::table('settings')->insert([
             'homepage_images' => '[]',
+            'teampage' => '',
+            'vippage' => '',
+            'introducepage' => ''
         ]);
     }
 }

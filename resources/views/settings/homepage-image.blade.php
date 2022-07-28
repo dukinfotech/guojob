@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+<h2>Setting ảnh trang chủ </h2>
 <div class="input-group">
     <span class="input-group-btn">
         <a id="lfm" data-input="images" data-preview="holder" class="btn btn-primary">

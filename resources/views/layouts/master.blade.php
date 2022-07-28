@@ -20,18 +20,18 @@
                 <img src="/images/footera.png" alt="footera" class="menu-icon">
                 <h5 class="fw-bold">Trang chủ</h5>
             </a>
-            <div class="menu-block2">
+            <a class="menu-block2 {{ request()->route()->getName() === 'myteam' ? 'menu-active' : '' }}" href="/myteam">
                 <img src="/images/footerb.png" alt="footerb" class="menu-icon">
                 <h5 class="fw-bold">Đội</h5>
-            </div>
-            <div class="menu-block2">
+            </a>
+            <a class="menu-block2 {{ request()->route()->getName() === 'vip' ? 'menu-active' : '' }}" href="/vip">
                 <img src="/images/footerc.png" alt="footerc" class="menu-icon">
                 <h5 class="fw-bold">VIP</h5>
-            </div>
-            <div class="menu-block2">
+            </a>
+            <a class="menu-block2 {{ request()->route()->getName() === 'introduce' ? 'menu-active' : '' }}" href="/introduce">
                 <img src="/images/footerd.png" alt="footerd" class="menu-icon">
                 <h5 class="fw-bold">Giới thiệu</h5>
-            </div>
+            </a>
             <div class="menu-block2">
                 <img src="/images/footere.png" alt="footere" class="menu-icon">
                 <h5 class="fw-bold">Tài khoản</h5>

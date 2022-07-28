@@ -30,4 +30,40 @@ class SettingController extends Controller
         auth()->user()->save();
         return back();
     }
+
+    public function showSettingMyteam() {
+        $setting = DB::table('settings')->first();
+        return view('settings.myteam')->with('setting', $setting);
+    }
+
+    public function saveSettingMyteam(Request $req) {
+        DB::table('settings')->update([
+            'teampage' => $req->teampage
+        ]);
+        return back()->with('success', true);
+    }
+
+    public function showSettingVip() {
+        $setting = DB::table('settings')->first();
+        return view('settings.vip')->with('setting', $setting);
+    }
+
+    public function saveSettingVip(Request $req) {
+        DB::table('settings')->update([
+            'vippage' => $req->vippage
+        ]);
+        return back()->with('success', true);
+    }
+
+    public function showSettingIntroduce() {
+        $setting = DB::table('settings')->first();
+        return view('settings.introduce')->with('setting', $setting);
+    }
+
+    public function saveSettingIntroduce(Request $req) {
+        DB::table('settings')->update([
+            'introducepage' => $req->introducepage
+        ]);
+        return back()->with('success', true);
+    }
 }

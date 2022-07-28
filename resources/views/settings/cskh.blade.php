@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+<h2>Setting URL CSKH </h2>
 <form action="/admin/settings/CSKH" method="post">
     @csrf
     @method('PUT')

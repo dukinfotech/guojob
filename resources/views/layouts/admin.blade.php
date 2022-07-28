@@ -61,16 +61,19 @@
             @endif
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item {{ str_contains(request()->url(), 'settings') ? 'active' : '' }}">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link {{ str_contains(request()->url(), 'settings') ? '' : 'collapsed' }}" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Cài đặt</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse {{ str_contains(request()->url(), 'settings') ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/admin/settings/CSKH">CSKH</a>
+                        <a class="collapse-item" href="/admin/settings/CSKH">URL CSKH</a>
                         @if (auth()->user()->isSupperAdmin())
                         <a class="collapse-item" href="/admin/settings/homepage-image">Ảnh trang chủ</a>
+                        <a class="collapse-item" href="/admin/settings/myteam">Trang team</a>
+                        <a class="collapse-item" href="/admin/settings/vip">Trang VIP</a>
+                        <a class="collapse-item" href="/admin/settings/introduce">Trang giới thiệu</a>
                         <a class="collapse-item filemanager" href="#">Quản lý file</a>
                         @endif
                     </div>

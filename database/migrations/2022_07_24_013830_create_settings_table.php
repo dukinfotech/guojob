@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->text('homepage_images')->default('[]');
+            $table->text('teampage')->default('');
+            $table->text('vippage')->default('');
+            $table->text('introducepage')->default('');
             $table->timestamps();
         });
     }

@@ -57,4 +57,19 @@ class PageController extends Controller
         $reqRecharges = RequestRecharge::where('user_id', $user->id)->orderBy('id', 'desc')->get();
         return view('pages.recharge_history')->with('reqRecharges', $reqRecharges);
     }
+
+    public function myteam() {
+        $setting = DB::table('settings')->first();
+        return view('pages.myteam')->with('setting', $setting);
+    }
+
+    public function vip() {
+        $setting = DB::table('settings')->first();
+        return view('pages.vip')->with('setting', $setting);
+    }
+
+    public function introduce() {
+        $setting = DB::table('settings')->first();
+        return view('pages.introduce')->with('setting', $setting);
+    }
 }

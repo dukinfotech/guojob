@@ -32,6 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/deposit', [PageController::class, 'deposit']);
     Route::post('/deposit', [RequestDepositController::class, 'send']);
     Route::get('/recharge-history', [PageController::class, 'rechargeHistory']);
+    Route::get('/myteam', [PageController::class, 'myteam'])->name('myteam');
+    Route::get('/vip', [PageController::class, 'vip'])->name('vip');
+    Route::get('/introduce', [PageController::class, 'introduce'])->name('introduce');
 });
 
 
@@ -54,11 +57,17 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/users/{id}', [UserController::class, 'showEdit']);
     Route::put('/users/{id}', [UserController::class, 'update']);
     Route::delete('/users/{id}', [UserController::class, 'delete']);
-    Route::group(['prefix' => 'settings'], function () {
+    Route::group(['prefix' => 'settings', 'middleware' => 'superadmin'], function () {
         Route::get('homepage-image', [SettingController::class, 'showSettingHomepageImage']);
         Route::put('homepage-image', [SettingController::class, 'saveSettingHomepageImage']);
         Route::get('CSKH', [SettingController::class, 'showCSKH']);
         Route::put('CSKH', [SettingController::class, 'saveCSKH']);
+        Route::get('myteam', [SettingController::class, 'showSettingMyteam']);
+        Route::put('myteam', [SettingController::class, 'saveSettingMyteam']);
+        Route::get('vip', [SettingController::class, 'showSettingVip']);
+        Route::put('vip', [SettingController::class, 'saveSettingVip']);
+        Route::get('introduce', [SettingController::class, 'showSettingIntroduce']);
+        Route::put('introduce', [SettingController::class, 'saveSettingIntroduce']);
     });
 
     Route::get('/charge-requests', [ChargeRequestController::class, 'index'])->name('charge-requests');
