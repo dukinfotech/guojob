@@ -27,5 +27,9 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('money2', function ($amount) {
             return "<?php echo number_format($amount) . ' VND'; ?>";
         });
+
+        Blade::directive('datetime', function ($timestamp) {
+            return "<?php echo date_format($timestamp, 'Y/m/d H:i'); ?>";
+        });
     }
 }

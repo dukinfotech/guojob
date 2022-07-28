@@ -197,6 +197,37 @@ a {
     font-weight: bold;
 }
 
+footer {
+    background-color: #fff;
+    position:fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.menu-block2 {
+    display: inline-block;
+    width: 18%;
+    color: #000;
+}
+
+.menu-block2:hover {
+    color: #E1105C;
+}
+
+.menu-icon {
+    max-width: 50px;
+}
+
+.menu-active {
+    color: #E1105C;
+}
+
+.recharge-history-block {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+}
+
 @media screen and (max-width: 992px) {
     .balance-block {
         padding: 30px;

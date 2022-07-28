@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Payment;
+use App\Models\RequestRecharge;
 
 class PageController extends Controller
 {
@@ -49,5 +50,11 @@ class PageController extends Controller
     public function deposit() {
         $payments = Payment::all();
         return view('pages.deposit')->with('payments', $payments);
+    }
+
+    public function rechargeHistory() {
+        $user = auth()->user();
+        $reqRecharges = RequestRecharge::where('user_id', $user->id)->orderBy('id', 'desc')->get();
+        return view('pages.recharge_history')->with('reqRecharges', $reqRecharges);
     }
 }

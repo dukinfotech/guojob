@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/confirm-recharge', [PageController::class, 'confirmRecharge']);
     Route::get('/deposit', [PageController::class, 'deposit']);
     Route::post('/deposit', [RequestDepositController::class, 'send']);
+    Route::get('/recharge-history', [PageController::class, 'rechargeHistory']);
 });
 
 

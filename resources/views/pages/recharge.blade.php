@@ -10,7 +10,7 @@
         </h3>
         <h3>Nạp tiền</h3>
         <h3>
-            <a href="" class="history-link">Lịch sử</a>
+            <a href="/recharge-history" class="history-link">Lịch sử</a>
         </h3>
     </div>
 </div>
