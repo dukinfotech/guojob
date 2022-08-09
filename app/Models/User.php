@@ -47,6 +47,11 @@ class User extends Authenticatable
         return $this->hasMany(User::class, 'child_id');
     }
 
+    public function notification()
+    {
+        return $this->hasMany(Notification::class);
+    }
+
     public function requestRecharges() {
         return $this->hasMany(RequestRecharge::class);
     }

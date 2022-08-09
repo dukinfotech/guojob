@@ -42,12 +42,13 @@ class UserController extends Controller
                         })
                         ->addColumn('action', function ($data) {
                             return '<a href="/admin/users/'.$data->id.'" class="btn btn-warning">Sửa</a>
+                            <button class="btn btn-success d-inline" onclick="showModalNotification('.$data->id.')">Gửi thông báo</button>
                             <form class="d-inline" method="post" action="/admin/users/'.$data->id.'" id="deleteUserForm'.$data->id.'">
                                 <input type="hidden" name="_token" value="'. csrf_token() .'" />
                                 <input type="hidden" name="_method" value="delete" />
                                 <button type="button" class="btn btn-danger" onclick="deleteUser('.$data->id.')">Xóa</button>
                             </form>';
-                        })
+                        })                    
                         ->escapeColumns([])
                         ->make(true);
     }

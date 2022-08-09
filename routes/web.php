@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\DepositRequestController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\RequestRechargeController;
 use App\Http\Controllers\RequestDepositController;
+use App\Http\Controllers\Admin\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', function () {
         return redirect('/admin/users');
     });
+    Route::post('/send-notification', [NotificationController::class, 'send']);
     Route::get('/users', [UserController::class, 'index'])->name('users');
     Route::get('/getUserData', [UserController::class, 'getUserData']);
     Route::get('/users/{id}', [UserController::class, 'showEdit']);
