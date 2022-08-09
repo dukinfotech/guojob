@@ -34,11 +34,7 @@
         </div>
         <div class="mb-3">
             <label for="bank" class="form-label">Ngân hàng sở hữu <span class="required">*</span></label>
-            <select name="bank" class="form-control">
-                @foreach ($payments as $payment)
-                <option value="{{ $payment->id }}" {{ old('bank') == $payment->id ? 'selected' : '' }}>{{ $payment->bank }}</option>
-                @endforeach
-            </select>
+            <input type="text" name="bank" class="form-control" value="{{ old('bank') }}" placeholder="Nhập tên ngân hàng" required>
         </div>
         <div class="mb-3">
             <label for="name" class="form-label">Họ và tên <span class="required">*</span></label>

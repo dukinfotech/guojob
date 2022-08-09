@@ -1,17 +1,23 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="balance-block">
-        <div class="user-name">
-            {{ auth()->user()->name }}
+    <div class="balance-block d-flex justify-content-between">
+        <div>
+            <div class="user-name">
+                {{ auth()->user()->name }}
+            </div>
+            <div class="user-invite-code mb-3">
+                @if (auth()->user()->role === 'admin')
+                {{ auth()->user()->invite_code }}
+                @endif
+            </div>
+            <div class="user-balance">
+                @money2(auth()->user()->balance)
+            </div>
         </div>
-        <div class="user-invite-code mb-3">
-            @if (auth()->user()->role === 'admin')
-            {{ auth()->user()->invite_code }}
-            @endif
-        </div>
-        <div class="user-balance">
-            @money2(auth()->user()->balance)
+        
+        <div>
+            <img src="/images/logo.png" alt="" height="100">
         </div>
     </div>
     <div class="row g-2 menu-block">
@@ -40,10 +46,12 @@
             </a>
         </div>
         <div class="col-lg-3 col-6">
-          <div class="menu bg-light">
-            <img class="img-fluid" src="/images/download1.png" alt="download">
-            <p class="menu-text">Tải xuống APP</p>
-          </div>
+            <a href="/download">
+                <div class="menu bg-light">
+                    <img class="img-fluid" src="/images/download1.png" alt="download">
+                    <p class="menu-text">Tải xuống APP</p>
+                </div>
+            </a>
         </div>
     </div>
     @if(count($homepage_images) == 0)

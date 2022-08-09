@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Payment;
 use App\Models\RequestRecharge;
+use App\Models\RequestDeposit;
+use App\Models\Notification;
 
 class PageController extends Controller
 {
@@ -58,6 +60,12 @@ class PageController extends Controller
         return view('pages.recharge_history')->with('reqRecharges', $reqRecharges);
     }
 
+    public function depositHistory() {
+        $user = auth()->user();
+        $reqDeposits = RequestDeposit::where('user_id', $user->id)->orderBy('id', 'desc')->get();
+        return view('pages.deposit_history')->with('reqDeposits', $reqDeposits);
+    }
+
     public function myteam() {
         $setting = DB::table('settings')->first();
         return view('pages.myteam')->with('setting', $setting);
@@ -75,7 +83,7 @@ class PageController extends Controller
 
     public function station() {
         $notifications = Notification::where('user_id', auth()->user()->id)->get();
-        return view('pages.notification')->with('notifications', $notifications);
+        return view('pages.station')->with('notifications', $notifications);
     }
 
     public function me() {

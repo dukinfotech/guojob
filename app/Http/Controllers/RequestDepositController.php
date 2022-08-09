@@ -21,14 +21,12 @@ class RequestDepositController extends Controller
             if (auth()->user()->level !== 'v1') {
                 throw new \Exception('Bạn cần hoàn thành nhiệm vụ để rút toàn bộ số tiền về. Vui lòng liên hệ chuyên viên hướng dẫn');
             }
-
-            $payment = Payment::findOrFail($req->bank);
+            
             $reqDeposit = new RequestDeposit($req->all());
 
             $user = auth()->user();
             $user->balance = $user->balance - $req->money;
             $user->save();
-            $reqDeposit->payment()->associate($payment);
             $reqDeposit->user()->associate($user);
             $reqDeposit->save();
             return back()->with('success', 'Đã gửi yêu cầu thành công. Vui lòng chờ xử lý');

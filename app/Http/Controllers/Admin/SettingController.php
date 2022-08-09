@@ -66,4 +66,16 @@ class SettingController extends Controller
         ]);
         return back()->with('success', true);
     }
+
+    public function showSettingDownload() {
+        $setting = DB::table('settings')->first();
+        return view('settings.download')->with('setting', $setting);
+    }
+
+    public function saveSettingDownload(Request $req) {
+        DB::table('settings')->update([
+            'downloadpage' => $req->downloadpage
+        ]);
+        return back()->with('success', true);
+    }
 }

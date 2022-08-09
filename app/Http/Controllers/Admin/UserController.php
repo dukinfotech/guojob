@@ -70,6 +70,8 @@ class UserController extends Controller
         $validatedData = $userReq->all();
         $user = User::findOrFail($id);
         if (!auth()->user()->isSupperAdmin()) {
+            $user->active = $validatedData['active'];
+            $user->role = $validatedData['role'];
             if ($user->parent_id !== auth()->user()->id) {
                 abort(403);
             }
@@ -78,9 +80,7 @@ class UserController extends Controller
         $user->phone = $validatedData['phone'];
         $user->level = $validatedData['level'];
         $user->commission = $validatedData['commission'];
-        $user->active = $validatedData['active'];
         $user->balance = $validatedData['balance'];
-        $user->role = $validatedData['role'];
 
         if ($validatedData['password']) {
             $user->password = password_hash($validatedData['password'], PASSWORD_DEFAULT);

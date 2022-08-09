@@ -2,10 +2,15 @@
 
 @section('content')
 <div class="me">
-    <div class="me-info">
-        <div class="me-block">{{ auth()->user()->name }}</div>
-        <div class="me-block">Số dư: @money2(auth()->user()->balance)</div>
-        <div class="me-block">{{ auth()->user()->phone }}</div>
+    <div class="me-info d-flex justify-content-between">
+        <div>
+            <img src="/images/logo.png" alt="" height="100">
+        </div>
+        <div>
+            <div class="me-block">{{ auth()->user()->name }}</div>
+            <div class="me-block">Số dư: @money2(auth()->user()->balance)</div>
+            <div class="me-block">{{ auth()->user()->phone }}</div>    
+        </div>
     </div>
     <div class="me-content container mt-3 mb-5">
         <div class="charge-deposit">
@@ -53,13 +58,13 @@
             </a>
         </div>
         <div class="charge-deposit-menu mt-3">
-            <a href="">
+            <a href="/deposit-history">
                 <img src="/images/minee.png" alt="minee">
                 Bảng ghi rút tiền
             </a>
         </div>
         <div class="charge-deposit-menu mt-3">
-            <a href="">
+            <a href="/station">
                 <img src="/images/monef.png" alt="monef">
                 Ga thư
             </a>

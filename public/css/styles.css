@@ -186,6 +186,7 @@ a {
 }
 
 .btnDeposit {
+    margin-bottom: 100px;
     color: #E1105C;
     background-color: #fff;
     width: 80%;
@@ -229,13 +230,12 @@ footer {
 }
 
 .me {
-    min-height: 100vh;
+    min-height: 150vh;
     background-color: #fff;
 }
 
 .me-info {
     padding: 30px;
-    padding-left: 30%;
     background-image: linear-gradient(to bottom, #F8387B, #E1105C);
 }
 
@@ -303,6 +303,18 @@ pre {
 
 .btn-logout a {
     color: #E1105C;
+}
+
+.station-item {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    color: #a6c4c3;
+}
+
+.nodata {
+    margin-top: 100px;
+    color: #a6c4c3
 }
 
 @media screen and (max-width: 992px) {

@@ -15,6 +15,7 @@
     <link href="/css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="/lib/jquery-ui-1.13.2.custom/jquery-ui.min.css">
+    <link rel="icon" type="image/x-icon" href="/images/logo.png">
 </head>
 
 <body id="page-top">
@@ -74,6 +75,7 @@
                         <a class="collapse-item" href="/admin/settings/myteam">Trang team</a>
                         <a class="collapse-item" href="/admin/settings/vip">Trang VIP</a>
                         <a class="collapse-item" href="/admin/settings/introduce">Trang giới thiệu</a>
+                        <a class="collapse-item" href="/admin/settings/download">Trang tải xuống</a>
                         <a class="collapse-item filemanager" href="#">Quản lý file</a>
                         @endif
                     </div>

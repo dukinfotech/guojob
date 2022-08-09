@@ -15,14 +15,11 @@ class RequestDeposit extends Model
         'phone',
         'money',
         'number',
-        'name'
+        'name',
+        'bank'
     ];
 
     public function user() {
         return $this->belongsTo(User::class);
-    }
-
-    public function payment() {
-        return $this->belongsTo(Payment::class);
     }
 }

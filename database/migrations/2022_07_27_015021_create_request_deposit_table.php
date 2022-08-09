@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('phone');
             $table->string('number');
             $table->string('name');
+            $table->string('bank');
             $table->boolean('isPaid')->default(false);
-            $table->foreignId('payment_id');
             $table->foreignId('user_id');
             $table->timestamps();;
         });

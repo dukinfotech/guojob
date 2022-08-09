@@ -4,7 +4,7 @@
 <div class="recharge-title">
     <div class="container h-100 d-flex justify-content-between align-items-center">
         <h3>
-            <a href="/">
+            <a href="/me">
                 <img src="/images/left.png" alt="left">
             </a>
         </h3>
@@ -16,6 +16,12 @@
 @endsection
 
 @section('content')
-{!! $setting->vippage !!}
-
+    <div class="mt-3">
+        @foreach($notifications as $notification)
+        <div class="station-item mb-2">
+            <h6>{{ $notification->content }}</h6>
+            <div>Thời gian: @datetime($notification->created_at)</div>
+        </div>
+        @endforeach
+    </div>
 @endsection

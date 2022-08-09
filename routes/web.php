@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/deposit', [PageController::class, 'deposit']);
     Route::post('/deposit', [RequestDepositController::class, 'send']);
     Route::get('/recharge-history', [PageController::class, 'rechargeHistory']);
+    Route::get('/deposit-history', [PageController::class, 'depositHistory']);
     Route::get('/myteam', [PageController::class, 'myteam'])->name('myteam');
     Route::get('/vip', [PageController::class, 'vip'])->name('vip');
     Route::get('/introduce', [PageController::class, 'introduce'])->name('introduce');
@@ -75,6 +76,8 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::put('vip', [SettingController::class, 'saveSettingVip']);
         Route::get('introduce', [SettingController::class, 'showSettingIntroduce']);
         Route::put('introduce', [SettingController::class, 'saveSettingIntroduce']);
+        Route::get('download', [SettingController::class, 'showSettingDownload']);
+        Route::put('download', [SettingController::class, 'saveSettingDownload']);
     });
 
     Route::get('/charge-requests', [ChargeRequestController::class, 'index'])->name('charge-requests');

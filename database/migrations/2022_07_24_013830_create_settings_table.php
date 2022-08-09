@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('teampage')->nullable();
             $table->text('vippage')->nullable();
             $table->text('introducepage')->nullable();
+            $table->text('downloadpage')->nullable();
             $table->timestamps();
         });
     }
