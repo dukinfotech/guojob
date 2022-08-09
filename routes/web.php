@@ -36,6 +36,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/myteam', [PageController::class, 'myteam'])->name('myteam');
     Route::get('/vip', [PageController::class, 'vip'])->name('vip');
     Route::get('/introduce', [PageController::class, 'introduce'])->name('introduce');
+    Route::get('/station', [PageController::class, 'station'])->name('station');
+    Route::get('/me', [PageController::class, 'me'])->name('me');
+    Route::get('/agreement', [PageController::class, 'agreement'])->name('agreement');
+    Route::get('/setting', [PageController::class, 'setting'])->name('setting');
+    Route::get('/download', [PageController::class, 'download'])->name('download');
 });
 
 

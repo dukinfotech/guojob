@@ -72,4 +72,32 @@ class PageController extends Controller
         $setting = DB::table('settings')->first();
         return view('pages.introduce')->with('setting', $setting);
     }
+
+    public function station() {
+        $notifications = Notification::where('user_id', auth()->user()->id)->get();
+        return view('pages.notification')->with('notifications', $notifications);
+    }
+
+    public function me() {
+        $cskh_url = null;
+        if (auth()->user()->parent) {
+            $cskh_url = auth()->user()->parent->cskh_url;
+        } else {
+            $cskh_url = auth()->user()->cskh_url;
+        }
+        return view('pages.me')->with('cskh_url', $cskh_url);
+    }
+
+    public function agreement() {
+        return view('pages.agreement');
+    }
+
+    public function setting() {
+        return view('pages.setting');
+    }
+
+    public function download() {
+        $setting = DB::table('settings')->first();
+        return view('pages.download')->with('setting', $setting);
+    }
 }

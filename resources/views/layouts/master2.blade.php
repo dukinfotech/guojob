@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body class="body-wrapper">
-    @yield('navbar')
-    <div class="container">
-        @yield('content')
-    </div>
-
+    @yield('content')
     <footer>
         <div class="text-center">
             <a class="menu-block2 {{ request()->route()->getName() === 'homepage' ? 'menu-active' : '' }}" href="/">

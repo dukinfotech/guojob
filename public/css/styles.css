@@ -228,6 +228,83 @@ footer {
     border-radius: 20px;
 }
 
+.me {
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.me-info {
+    padding: 30px;
+    padding-left: 30%;
+    background-image: linear-gradient(to bottom, #F8387B, #E1105C);
+}
+
+.me-block {
+    padding: 5px;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background: linear-gradient(1deg, rgba(209, 171, 80, 0.99), rgba(241, 221, 122, 0.99), rgba(196, 150, 62, 0.99));
+}
+
+.me-content {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+pre {
+	white-space: pre-line;
+}
+
+.charge-deposit {
+    border: 1px solid #E1105C;
+    background-color: #E1105C;
+    border-radius: 10px;
+}
+
+.charge-deposit-logo {
+    padding: 10px 50px;
+}
+
+.charge-deposit-text {
+    border-radius: 0 0 10px 10px;
+    padding: 10px 50px;
+    background-color: #fff;
+}
+
+.charge-deposit-text a {
+    color: #E1105C;
+}
+
+.charge-deposit-menu {
+    border-radius: 10px;
+    padding: 6px;
+    background: linear-gradient(-90deg, #E4497E, #FF87B0);
+}
+
+.charge-deposit-menu a {
+    color: #555;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.agreement {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.btn-logout {
+    padding: 10px;
+    border-radius: 40px;
+    background-color: #fff;
+}
+
+.btn-logout a {
+    color: #E1105C;
+}
+
 @media screen and (max-width: 992px) {
     .balance-block {
         padding: 30px;
